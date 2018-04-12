@@ -9,7 +9,7 @@ class Event < ApplicationRecord
       event_description: event_description,
       event_date: event_date,
       event_time: event_time,
-      event_location: event_location
+      event_address: event_address
     }
   
   end 
