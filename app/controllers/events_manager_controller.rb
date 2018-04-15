@@ -34,7 +34,7 @@ class EventsManagerController < ApplicationController
   end
 
   def update
-    event = Event.find(params [:id])
+    event = Event.find_by(params [:id])
 
     event.update( event_name: params[:event_name],
     event_description: params[:event_description],
@@ -50,7 +50,7 @@ class EventsManagerController < ApplicationController
   end
 
   def destroy
-    event = Event.find(params [:id])
+    event = Event.find_by(params [:id])
     render json: {message: "Your entry deleted"}
 
   end

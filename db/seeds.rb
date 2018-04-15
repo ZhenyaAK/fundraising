@@ -5,3 +5,28 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#attendees
+# Faker::Name.name
+# Faker::Internet.free_email
+# Faker::Internet.password(8)
+# Faker::Boolean.boolean(0.1)
+# create attendees data
+# 100.times do
+#   Attendee.create!(
+#     attendee_name: Faker::Name.name,
+#     attendee_email: Faker::Internet.free_email,
+#     password_digest: Faker::Internet.password(8),
+#     volunteer: Faker::Boolean.boolean(0.1)
+#     )
+# end
+
+#create organisers:
+#  10.times do 
+#   Organiser.create!(
+#     name: Faker::Name.name,
+#     email_address: Faker::Internet.free_email,
+#     password_digest: Faker::Internet.password(8)
+#     )
+# end
+
+#
