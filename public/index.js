@@ -4,25 +4,32 @@ var HomePage = {
   template: "#home-page",
   data: function() {
     return {
-      message: "Welcome to Vue.js!"
+      message: "Home Page. Events for you",
+      events: []
     };
   },
-  created: function() {},
+  created: function() {
+    axios.get("/events").then(function(response) {
+      console.log(response.data);
+      this.events = response.data;
+    }.bind(this));
+  },
   methods: {},
   computed: {}
 };
 
 
 var EventsPage = {
-  template: "#events-page",
+  template: "#events-show-page",
   data: function() {
     return {
-      message: "See all Events!"
+      message: "a specific event!",
       event: {}
     };
   },
   created: function() {
-    axios.get("/events" + this.$route.params.id).then(function(response) {
+    axios.get("/events/" + this.$route.params.id).then(function(response) {
+      console.log(response.data);
       this.event = response.data;
     }.bind(this));
   },
@@ -33,7 +40,7 @@ var EventsPage = {
 var router = new VueRouter({
   routes: [
   { path: "/", component: HomePage },
-  { path: "/events", component: EventsPage }
+  { path: "/events/:id", component: EventsPage }
 
 
   ],
