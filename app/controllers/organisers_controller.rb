@@ -3,8 +3,8 @@ class OrganisersController < ApplicationController
     org = Organiser.new(
       name: params[:name],
       email_address: params[:email_address],
-      password: params[:password]
-      #password_confirmation params[:password_confirmation]
+      password: params[:password],
+      password_confirmation: params[:password_confirmation]
       )
     if org.save
       render json: {message: "created successfully"}, status: :created
