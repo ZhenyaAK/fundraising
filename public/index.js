@@ -3,7 +3,7 @@ var LoginPage = {
   template: "#login-page",
   data: function() {
     return {
-      email_address: "",
+      email: "",
       password: "",
       errors: []
     };
@@ -11,10 +11,10 @@ var LoginPage = {
   methods: {
     submit: function() {
       var params = {
-        auth: { email: this.email_address, password: this.password }
+        auth: { email: this.email, password: this.password }
       };
       axios
-        .post("/user_token", params)
+        .post("/organiser_token", params)
         .then(function(response) {
           axios.defaults.headers.common["Authorization"] =
             "Bearer " + response.data.jwt;
@@ -36,7 +36,7 @@ var SignupPage = {
   data: function() {
     return {
       name: "",
-      email_address: "",
+      email: "",
       password: "",
       passwordConfirmation: "",
       errors: []
@@ -46,7 +46,7 @@ var SignupPage = {
     submit: function() {
       var params = {
         name: this.name,
-        email_address: this.email_address,
+        email: this.email,
         password: this.password,
         password_confirmation: this.passwordConfirmation
       };
@@ -139,6 +139,47 @@ var EventNewPage = {
   },
   computed: {}
 };
+
+var EventEditPage = {
+  template: "#event-edit-page",
+  data: function() {
+    return {
+      message: "to update an event!",
+      event: {},
+      errors: []
+      
+    };
+  },
+  created: function() {
+     axios.get("events/" + this.$route.params.id).then(function(response) {
+        this.event = response.data;
+      }.bind(this));
+
+  },
+  methods: {
+    submit: function() {
+      var params = {
+
+        event_name: this.event_name,
+        event_description: this.event_description,
+        event_date: this.event_date,
+        event_time: this.event_time,
+        event_address: this.event_address
+      };
+      axios.post("/events", params).then(function(response) {
+        router.push("/");
+      }).catch(
+      function(error) {
+        this.errors = error.response.data.errors;
+      }.bind(this)
+      );
+
+    }
+  },
+  computed: {}
+};
+
+
 var LogoutPage = {
   template: "<h1>Logout</h1>",
   created: function() {
@@ -155,6 +196,7 @@ var router = new VueRouter({
   { path: "/login", component: LoginPage},
   { path: "/events/new", component: EventNewPage },
   { path: "/events/:id", component: EventsPage },
+  { path: "/events/:id/edit", component: EventEditPage },
   { path: "/logout", component: LogoutPage}
 
   ],

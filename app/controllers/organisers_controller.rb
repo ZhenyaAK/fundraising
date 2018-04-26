@@ -2,7 +2,7 @@ class OrganisersController < ApplicationController
   def create
     org = Organiser.new(
       name: params[:name],
-      email_address: params[:email_address],
+      email: params[:email],
       password: params[:password],
       password_confirmation: params[:password_confirmation]
       )

@@ -24,7 +24,7 @@
 #  10.times do 
 #   Organiser.create!(
 #     name: Faker::Name.name,
-#     email_address: Faker::Internet.free_email,
+#     email: Faker::Internet.free_email,
 #     password_digest: Faker::Internet.password(8)
 #     )
 # end

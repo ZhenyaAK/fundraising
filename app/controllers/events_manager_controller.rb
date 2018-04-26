@@ -17,6 +17,9 @@ class EventsManagerController < ApplicationController
   end
 
   def create
+    p "*****************"
+    p current_user
+    p "**********"
     event = Event.new(
       event_name: params[:event_name],
       event_description: params[:event_description],
