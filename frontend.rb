@@ -1,16 +1,43 @@
 require 'unirest'
 
-#make a new user/organiser
-# response = Unirest.post("http://localhost:3000/organisers", 
-#   parameters: {
+# make a new organiser
+response = Unirest.post("http://localhost:3000/organisers", 
+  parameters: {
    
-#     name: "x",
-#     email_address: "x@gmail.com",
-#     password: "passwordX",
+    name: "peter",
+    email_address: "peter@email.com",
+    password: "password",
+    password_confirmation: "password"
 
-#   }
-#   )
-# # p response.body
+  }
+  )
+
+p response.body
+
+response = Unirest.post("http://localhost:3000/organisers_token", 
+  parameters: {
+
+      auth: { 
+         email: "peter@email.com",
+         password: "password"
+       }
+   } 
+)
+
+jwt = response.body["jwt"]
+
+Unirest.default_header("Authorization", "Bearer #{jwt}")
+
+jwt = ""
+Unirest.clear_default_headers()
+  
+  # if current_organiser
+  #  organisers = current_organiser.organisers
+  #  render json: organisers.as_json
+  # else
+  #   render json[]
+  # end 
+
 
 # # see all events
 # response = Unirest.get("http://localhost:3000/events")
@@ -47,29 +74,29 @@ require 'unirest'
 # p response.body
 
 #update an event ???
-p "To update an Event please Enter Event number"
-input_id = gets.chomp
+# p "To update an Event please Enter Event number"
+# input_id = gets.chomp
 
-response = Unirest.get("http://localhost:3000/events/#{input_id}")
-p response.body
+# response = Unirest.get("http://localhost:3000/events/#{input_id}")
+# p response.body
 
-user_params = {}
+# user_params = {}
 
-p "Your event name is #{response.body["event_name"]}"
-user_params[:event_name] = gets.chomp
+# p "Your event name is #{response.body["event_name"]}"
+# user_params[:event_name] = gets.chomp
 
-p "Event Description (#{response.body["event_description"]}) :"
-user_params[:event_description] = gets.chomp
+# p "Event Description (#{response.body["event_description"]}) :"
+# user_params[:event_description] = gets.chomp
 
-p "Event Date (#{response.body["event_date"]}) :"
-user_params[:event_date] = gets.chomp
+# p "Event Date (#{response.body["event_date"]}) :"
+# user_params[:event_date] = gets.chomp
 
-p "Event Name (#{response.body["event_time"]}) :"
-user_params[:event_time] = gets.chomp
+# p "Event Name (#{response.body["event_time"]}) :"
+# user_params[:event_time] = gets.chomp
 
-p "Event Name (#{response.body["event_address"]}) :"
-user_params[:event_address] = gets.chomp
+# p "Event Name (#{response.body["event_address"]}) :"
+# user_params[:event_address] = gets.chomp
 
-#delete event ?? 
-response = Unirest.delete("http://localhost:3000/events/#{input_id}")
-p response.body
+# #delete event ?? 
+# response = Unirest.delete("http://localhost:3000/events/#{input_id}")
+# p response.body

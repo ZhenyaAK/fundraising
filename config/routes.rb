@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
  post 'organiser_token' => 'organiser_token#create'
   #organiser create route
+  get '/organisers' => 'organisers#index'
   post '/organisers' =>'organisers#create'
   #all events
   get '/events' =>'events_manager#index'

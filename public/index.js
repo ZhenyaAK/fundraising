@@ -121,24 +121,31 @@ var EventNewPage = {
     submit: function() {
       var params = {
 
-        input_event_name: this.event_name,
-        input_event_description: this.event_description,
-        input_event_date: this.event_date,
-        input_event_time: this.event_time,
-        input_event_address: this.event_address
+        event_name: this.event_name,
+        event_description: this.event_description,
+        event_date: this.event_date,
+        event_time: this.event_time,
+        event_address: this.event_address
       };
       axios.post("/events", params).then(function(response) {
         router.push("/");
       }).catch(
       function(error) {
         this.errors = error.response.data.errors;
-      }.bind(this)
-      );
+      }.bind(this));
+  
+   }, 
 
-    }
+     DeleteEvent: function(theEvent) {
+    var index = this.event.indexOf(theEvent);
+  this.event.splice(index, 1);
   },
+
   computed: {}
-};
+}
+}; 
+
+
 
 var EventEditPage = {
   template: "#event-edit-page",

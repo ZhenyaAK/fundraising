@@ -1,4 +1,12 @@
 class OrganisersController < ApplicationController
+  before_action :authenticate_organiser
+
+  def index
+    organisers = Organiser.all
+    render json: organisers.as_json
+
+  end
+
   def create
     org = Organiser.new(
       name: params[:name],

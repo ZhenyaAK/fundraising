@@ -18,14 +18,15 @@ class EventsManagerController < ApplicationController
 
   def create
     p "*****************"
-    p current_user
+    p current_organiser
     p "**********"
     event = Event.new(
       event_name: params[:event_name],
       event_description: params[:event_description],
       event_date: params[:event_date],
       event_time: params[:event_time],
-      event_address: params[:event_address]
+      event_address: params[:event_address], 
+      organiser_id: current_organiser.id
 
       )
     if event.save
