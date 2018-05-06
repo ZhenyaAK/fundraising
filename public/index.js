@@ -167,13 +167,13 @@ var EventEditPage = {
     submit: function() {
       var params = {
 
-        event_name: this.event_name,
-        event_description: this.event_description,
-        event_date: this.event_date,
-        event_time: this.event_time,
-        event_address: this.event_address
+        event_name: this.event.event_name,
+        event_description: this.event.event_description,
+        event_date: this.event.event_date,
+        event_time: this.event.event_time,
+        event_address: this.event.event_address
       };
-      axios.post("/events", params).then(function(response) {
+      axios.patch("/events/" + this.$route.params.id, params).then(function(response) {
         router.push("/");
       }).catch(
       function(error) {
@@ -214,10 +214,11 @@ var router = new VueRouter({
 
 var app = new Vue({
   el: "#vue-app",
-  router: router
-    //  var jwt = localStorage.getItem("jwt");
-    // if (jwt) {
-    //   axios.defaults.headers.common["Authorization"] = jwt;
-    // }
-  //}
+  router: router,
+  created: function() {
+    var jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      axios.defaults.headers.common["Authorization"] = jwt;
+    }
+  }
 });
