@@ -58,6 +58,7 @@ class EventsManagerController < ApplicationController
 
   def destroy
     event = Event.find_by(id: params[:id])
+    event.destroy
     render json: {message: "Your entry deleted"}
 
   end

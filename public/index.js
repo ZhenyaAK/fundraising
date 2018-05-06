@@ -99,6 +99,7 @@ var EventsPage = {
     }.bind(this));
   },
   methods: {},
+
   computed: {}
 };
 
@@ -133,19 +134,11 @@ var EventNewPage = {
       function(error) {
         this.errors = error.response.data.errors;
       }.bind(this));
-  
-   }, 
-
-     DeleteEvent: function(theEvent) {
-    var index = this.event.indexOf(theEvent);
-  this.event.splice(index, 1);
-  },
+      }, 
 
   computed: {}
 }
 }; 
-
-
 
 var EventEditPage = {
   template: "#event-edit-page",
@@ -180,8 +173,20 @@ var EventEditPage = {
         this.errors = error.response.data.errors;
       }.bind(this)
       );
+    },
+    DeleteEvent: function(theEvent) {
+      axios.delete("/events/" + this.$route.params.id).then(function(response) {
+        router.push("/");
+      }).catch(
+      function(error) {
+        this.errors = error.response.data.errors;
+      }.bind(this)
+      );
 
-    }
+    //   var index = this.event.indexOf(theEvent);
+    //   this.event.splice(index, 1);
+    },
+
   },
   computed: {}
 };
