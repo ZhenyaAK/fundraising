@@ -135,9 +135,8 @@ var EventNewPage = {
         this.errors = error.response.data.errors;
       }.bind(this));
       }, 
-
+    },
   computed: {}
-}
 }; 
 
 var EventEditPage = {
@@ -151,7 +150,7 @@ var EventEditPage = {
     };
   },
   created: function() {
-     axios.get("events/" + this.$route.params.id).then(function(response) {
+     axios.get("/events/" + this.$route.params.id).then(function(response) {
         this.event = response.data;
       }.bind(this));
 
