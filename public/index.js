@@ -70,7 +70,7 @@ var HomePage = {
     return {
       message: "Home Page. Events for you",
       events: [], 
-      searchTerm: "Walk"
+      searchTerm: ""
 
     };
   },

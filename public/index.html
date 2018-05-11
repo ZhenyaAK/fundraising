@@ -130,9 +130,23 @@
 
   <template id="home-page">
    <div>
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+            <form>
+              <div class="form-row">
+                <div class="col-12 col-md-9 mb-2 mb-md-0">
+                  <input type="text" class="form-control form-control-lg" placeholder="Enter an event name" v-model="searchTerm">
+                </div>
+                <div class="clearfix">
+                  <a class="btn btn-primary float-right" href="">Search</a>
+                  <!-- <button type="submit" class="btn btn-block btn-lg btn-primary" href="">Search</button> -->
+                </div>
+              </div>
+            </form>
+          </div>
+
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto" v-for="event in events">
+        <div class="col-lg-8 col-md-10 mx-auto" v-for="event in events" v-if="isValidEvent(event)">
           <div class="post-preview">
             <a href="post.html">
               <h2 class="post-title">
@@ -146,8 +160,8 @@
               {{ event.event_date }}</p>
             <p class="post-meta"> Time:
               {{ event.event_time}} </p>
-            <p class="post-meta"> Location:
-            {{ event.event_address}} </p>
+            <a href="post.html"class="post-meta"> Location:
+            {{ event.event_address}} </a>
           </div>
 
           <hr>
