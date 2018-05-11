@@ -8,16 +8,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Landing Page - Start Bootstrap Theme</title>
+    <title>Clean Blog - Start Bootstrap Theme</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-     <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
      <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
      <script src="https://unpkg.com/axios/dist/axios.js"></script>
      <script src="https://maps.googleapis.com/maps/api/js"></script>
@@ -25,228 +26,139 @@
      <link rel="stylesheet" href="index.css">
 
     <!-- Custom styles for this template -->
-    <link href="css/landing-page.min.css" rel="stylesheet">
+    <link href="css/clean-blog.min.css" rel="stylesheet">
 
   </head>
 
   <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-light bg-light static-top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand" href="#/events/new">Add Your Cause</a>
-        <a class="btn btn-primary" href="#/login">Sign In</a>
-        <a class="btn btn-primary" href="#/logout">Logout</a>
-        <!-- <a class="btn btn-primary" href="#/events/new">Add Your Cause</a> -->
+        <a class="navbar-brand" href="/">Start Bootstrap</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#/logout">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#/events/new">Add Your Cause</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
-
-    <!-- Masthead -->
-  
-
+    
 
     <div id="vue-app">
-
-    <router-view></router-view>
-
-     </div>
-    <!-- Footer -->
-    <section class="features-icons bg-light text-center">
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/home-bg.jpg')">
+      <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="icon-screen-desktop m-auto text-primary"></i>
-              </div>
-              <h3>Fully Responsive</h3>
-              <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="icon-layers m-auto text-primary"></i>
-              </div>
-              <h3>Bootstrap 4 Ready</h3>
-              <p class="lead mb-0">Featuring the latest build of the new Bootstrap 4 framework!</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-              <div class="features-icons-icon d-flex">
-                <i class="icon-check m-auto text-primary"></i>
-              </div>
-              <h3>Easy to Use</h3>
-              <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <!-- <h1>Clean Blog</h1> -->
+              <span class="subheading">How Will You Change the World Today</span>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <footer class="footer bg-light">
+    </header>
+
+        <router-view></router-view>
+  
+    <hr>
+
+    <!-- Footer -->
+    <footer>
       <div class="container">
         <div class="row">
-          <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
-            <ul class="list-inline mb-2">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
               <li class="list-inline-item">
-                <a href="#">About</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Contact</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-            </ul>
-            <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2018. All Rights Reserved.</p>
-          </div>
-          <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
-            <ul class="list-inline mb-0">
-              <li class="list-inline-item mr-3">
                 <a href="#">
-                  <i class="fa fa-facebook fa-2x fa-fw"></i>
-                </a>
-              </li>
-              <li class="list-inline-item mr-3">
-                <a href="#">
-                  <i class="fa fa-twitter fa-2x fa-fw"></i>
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
                 </a>
               </li>
               <li class="list-inline-item">
                 <a href="#">
-                  <i class="fa fa-instagram fa-2x fa-fw"></i>
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
                 </a>
               </li>
             </ul>
+            <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
           </div>
         </div>
       </div>
     </footer>
 
+    </div>
+
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+
   </body>
 
-  
-    <!-- Icons Grid -->
-<template id="home-page">
-    <!-- Image Showcases -->
-  <div>
-    <header class="masthead text-white text-center">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-9 mx-auto">
-            <h4 class="mb-5"> How will you change the world today? </h4>
-          </div>
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form>
-              <div class="form-row">
-                <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  <input type="text" class="form-control form-control-lg" placeholder="Enter an event name" v-model="searchTerm">
-                </div>
-                <div class="col-12 col-md-3">
-                  <button type="submit" class="btn btn-block btn-lg btn-primary" href="/events/new">Search</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </header>
-    <input v-model="searchTerm">
-
-    <button type="Search" class="btn btn-block btn-lg btn-primary" href="">Search</button>
-
-
-    <section class="showcase">
-      <div class="container-fluid p-0">
-        <div class="row no-gutters">
-
-          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/bg-showcase-1.jpg');"></div>
-         
-          <div class="col-lg-6 order-lg-1 my-auto showcase-text" v-for="event in events" v-if="isValidEvent(event)">
-
-            <h2>{{ event.event_name }}</h2>
-            <p class="lead mb-0">{{ event.event_description }}</p>
-            <p class="lead mb-0">Date: {{ event.event_date }}</p>
-            <p class="lead mb-0">Time: {{ event.event_time }}</p>
-            <p class="lead mb-0">Address: {{ event.event_address }}</p>
-
-
-            <div class="col-12 col-md-6">
-                  <button type="Donate" class="btn btn-block btn-lg btn-primary" href="">Donate</button>
-                </div>
+  <template id="home-page">
+   <div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" v-for="event in events">
+          <div class="post-preview">
+            <a href="post.html">
+              <h2 class="post-title">
+                {{ event.event_name }}
+              </h2>
+              <h3 class="post-subtitle">
+                {{ event.event_description }}
+              </h3>
+            </a>
+            <p class="post-meta">Date: 
+              {{ event.event_date }}</p>
+            <p class="post-meta"> Time:
+              {{ event.event_time}} </p>
+            <p class="post-meta"> Location:
+            {{ event.event_address}} </p>
           </div>
 
-      
-      </div>
-  
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials text-center bg-light">
-      <div class="container">
-        <h2 class="mb-5">Share Your Story</h2>
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img class="img-fluid rounded-circle mb-3" src="img/testimonials-1.jpg" alt="">
-              <h5>Margaret E.</h5>
-              <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img class="img-fluid rounded-circle mb-3" src="img/testimonials-2.jpg" alt="">
-              <h5>Fred S.</h5>
-              <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img class="img-fluid rounded-circle mb-3" src="img/testimonials-3.jpg" alt="">
-              <h5>Sarah W.</h5>
-              <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to us!"</p>
-            </div>
+          <hr>
+          <!-- Pager -->
+          <div class="clearfix">
+            <a class="btn btn-primary float-right" href="Donate">Donate &rarr;</a>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="text-white text-center">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-9 mx-auto">
-            <h2 class="mb-4">Ready to get started? Sign up now!</h2>
-          </div>
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form>
-              <div class="form-row">
-                <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
-                </div>
-                <div class="col-12 col-md-3">
-                  <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+    </div>
+   </div>  
   </template>
 
   <template id="login-page">
@@ -309,9 +221,9 @@
       </div>
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
     </div>
-</template>
+  </template>
 
-<template id="event-new-page">
+  <template id="event-new-page">
     <div class="vue-component">
 
     <div class="container">
@@ -344,9 +256,9 @@
 
     </div>
 
-</template>
+  </template>
 
-<template id="organiser-events-page">
+  <template id="organiser-events-page">
     <div class="vue-component">
 
      <div class="container">
@@ -367,7 +279,6 @@
 
     </div>
 
-</template>
+  </template>
 
 </html>
-

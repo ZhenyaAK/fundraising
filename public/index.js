@@ -275,7 +275,7 @@ var router = new VueRouter({
   { path: "/signup", component: SignupPage},
   { path: "/login", component: LoginPage},
   { path: "/events/new", component: EventNewPage },
-  { path: "/organiser_events", component: OrganiserEventsPage },
+  { path: "/organiserevents", component: OrganiserEventsPage },
   { path: "/events/:id", component: EventsPage },
   { path: "/events/:id/edit", component: EventEditPage },
   { path: "/logout", component: LogoutPage}
