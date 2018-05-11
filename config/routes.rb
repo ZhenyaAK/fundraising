@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post '/organisers' =>'organisers#create'
   #all events
   get '/events' =>'events_manager#index'
+  #events posted by an organiser
+  get '/organiserevents' => 'events_manager#organiser_events_index'
   #an event
   get '/events/:id' =>'events_manager#show'
   #create an event
