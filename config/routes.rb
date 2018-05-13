@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   get '/events/:id' =>'events_manager#show'
   #create an event
   post '/events' => 'events_manager#create'
+
+  post '/attendees' => 'attendee#create'
+
+
   #update
   patch '/events/:id'=> 'events_manager#update'
   #delete

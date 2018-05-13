@@ -64,6 +64,39 @@ var SignupPage = {
   }
 };
 
+var RegisterPage = {
+  template: "#register-page",
+  data: function() {
+    return {
+      name: "",
+      email: "",
+      password: "",
+      passwordConfirmation: "",
+      errors: []
+    };
+  },
+  methods: {
+    register: function() {
+      var params = {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+        password_confirmation: this.passwordConfirmation
+      };
+      axios
+        .post("/attendees", params)
+        .then(function(response) {
+          router.push("/");
+        })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+          }.bind(this)
+        );
+    }
+  }
+};
+
 var HomePage = {
   template: "#home-page",
   data: function() {
@@ -144,6 +177,25 @@ var EventsPage = {
       console.log(response.data);
       this.event = response.data;
     }.bind(this));
+  },
+  methods: {},
+
+  computed: {}
+};
+
+var PostPage = {
+  template: "#post-page",
+  data: function() {
+    return {
+      message: "a specific event!",
+      event: {}
+    };
+  },
+  created: function() {
+    // axios.get("/events/" + this.$route.params.id).then(function(response) {
+    //   console.log(response.data);
+    //   this.event = response.data;
+    // }.bind(this));
   },
   methods: {},
 
@@ -276,9 +328,11 @@ var router = new VueRouter({
   { path: "/login", component: LoginPage},
   { path: "/events/new", component: EventNewPage },
   { path: "/organiserevents", component: OrganiserEventsPage },
+  { path: "/attendees", component: RegisterPage },
   { path: "/events/:id", component: EventsPage },
   { path: "/events/:id/edit", component: EventEditPage },
-  { path: "/logout", component: LogoutPage}
+  { path: "/logout", component: LogoutPage},
+  { path: "/post", component: PostPage}
 
   ],
   scrollBehavior: function(to, from, savedPosition) {

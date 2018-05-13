@@ -62,20 +62,7 @@
 
     <div id="vue-app">
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/home-bg.jpg')">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="site-heading">
-              <!-- <h1>Clean Blog</h1> -->
-              <span class="subheading">How Will You Change the World Today</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
+ 
         <router-view></router-view>
   
     <hr>
@@ -129,7 +116,25 @@
   </body>
 
   <template id="home-page">
+
    <div>
+
+    <header class="masthead" style="background-image: url('img/home-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <!-- <h1>Clean Blog</h1> -->
+              <span class="subheading">How Will You Change the World Today</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
             <form>
               <div class="form-row">
@@ -148,7 +153,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto" v-for="event in events" v-if="isValidEvent(event)">
           <div class="post-preview">
-            <a href="post.html">
+            <a href="/#/post">
               <h2 class="post-title">
                 {{ event.event_name }}
               </h2>
@@ -160,7 +165,7 @@
               {{ event.event_date }}</p>
             <p class="post-meta"> Time:
               {{ event.event_time}} </p>
-            <a href="post.html"class="post-meta"> Location:
+            <a href="/#/post"class="post-meta"> Location:
             {{ event.event_address}} </a>
           </div>
 
@@ -292,6 +297,151 @@
       </div>
 
     </div>
+
+  </template>
+
+  <template id="register-page">
+   <div class="vue-component">
+
+    <div class="container">
+      <h1>Register</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>Name:</label>
+        <input type="text" class="form-control" v-model="name">
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" class="form-control" v-model="email">
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" class="form-control" v-model="password">
+      </div>
+      <div class="form-group">
+        <label>Password confirmation:</label>
+        <input type="password" class="form-control" v-model="passwordConfirmation">
+      </div>
+      <button class="btn btn-primary" v-on:click="register()">Register</button>
+    </div>
+  </template>
+
+  <template id="post-page">
+   <div>
+
+      <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h3>To advance understanding, create new treatments and specialized care </h3>
+              <!-- <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+              <span class="meta">Posted by
+                <a href="#">Start Bootstrap</a>
+                on August 24, 2018</span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+           <div class="post-preview">
+              <h2 class="post-title">
+               Cystic Fibrosis Foundation
+              </h2>
+            <p class="post-meta">Date: 
+              </p>
+            <p class="post-meta"> Time:
+              </p>
+            <a href="/#/post"class="post-meta"> Location:
+            </a>
+          </div>
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <p>Our mission is to find a cure for cystic fibrosis and improve the quality of life for those living with the disease. We can't do it alone. Help us add tomorrows by giving today.</p>
+
+            <!-- <p>Give Today</p> -->
+
+            <p>Your gift of support to the Annual Fund provides important, unrestricted resources that help us advance our mission. It helps us develop new treatments and pursue every opportunity for promising research that can lead us to a cure.</p>
+
+          
+            <p>Learn More About
+              <a href="https://www.cff.org">Cystic Fibrosis Foundation</a>.
+
+            <p>
+
+            <div class="clearfix">
+            <a class="btn btn-primary float-left" href="/#/attendees">Register &rarr;</a>
+            </div>
+            </p> 
+
+            <p>
+
+            <div class="clearfix">
+            <a class="btn btn-primary float-left" href="Donate">Map&rarr;</a>
+            </div>
+            </p>
+
+           <!--  <div class="clearfix">
+            <a class="btn btn-primary float-left" href="Donate">Donate &rarr;</a>
+            </div> -->
+
+            <div class="donate-text">
+              <span class="donate-title">Give</span>
+            <div class="donate-money-amount-wrapper">
+              <input class="donate-money-amount" type = "text" value ="$50">
+             <!--  <div class="donate-money-amount-dollar-sign">$</div> -->
+              <div class="donate-money-currency"> 
+                USD
+              </div>
+            </div>
+
+            <button class="btn btn-primary float-left" href="/attendees"> Donate</button>
+
+
+          
+            <!-- <p>A Chinese tale tells of some men sent to harm a young girl who, upon seeing her beauty, become her protectors rather than her violators. That's how I felt seeing the Earth for the first time. I could not help but love and cherish her.</p>
+
+            <p>For those who have seen the Earth from space, and for the hundreds and perhaps thousands more who will, the experience most certainly changes your perspective. The things that we share in our world are far more valuable than those which divide us.</p>
+
+            <h2 class="section-heading">The Final Frontier</h2>
+
+            <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
+
+            <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
+
+            <blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
+
+            <p>Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is a historical process which mankind is carrying out in accordance with the natural laws of human development.</p>
+
+            <h2 class="section-heading">Reaching for the Stars</h2>
+
+            <p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to change a man.</p>
+
+            <a href="#">
+              <img class="img-fluid" src="img/post-sample-image.jpg" alt="">
+            </a>
+            <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
+
+            <p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p>
+
+            <p>As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental truth to our nature, Man must explore, and this is exploration at its greatest.</p>
+
+            <!-- <p>Placeholder text by
+              <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by
+              <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>  
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
 
   </template>
 
