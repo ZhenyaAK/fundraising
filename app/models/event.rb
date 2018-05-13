@@ -9,7 +9,12 @@ class Event < ApplicationRecord
       event_description: event_description,
       event_date: event_date,
       event_time: event_time,
-      event_address: event_address
+      event_address: event_address, 
+      tagline: tagline,
+      details1: details1,
+      foundation_url: foundation_url,
+      img_url: img_url
+
     }
   
   end 

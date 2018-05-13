@@ -153,10 +153,11 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto" v-for="event in events" v-if="isValidEvent(event)">
           <div class="post-preview">
-            <a href="/#/post">
-              <h2 class="post-title">
+            
+            <a v-bind:href="'/#/events/' + event.id"><h2 class="post-title">
                 {{ event.event_name }}
-              </h2>
+              </h2></a>
+
               <h3 class="post-subtitle">
                 {{ event.event_description }}
               </h3>
@@ -403,6 +404,92 @@
             </div>
 
             <button class="btn btn-primary float-left" href="/attendees"> Donate</button>
+   </div>
+
+  </template>
+
+  <template id="events-show-page">
+   <div>
+
+      <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h3>{{event.tagline}} </h3>
+              <!-- <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+              <span class="meta">Posted by
+                <a href="#">Start Bootstrap</a>
+                on August 24, 2018</span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+           <div class="post-preview">
+              <h2 class="post-title">
+               {{event.event_name}}
+              </h2>
+            <p class="post-meta">Date: {{ event.event_date }} 
+              </p>
+            <p class="post-meta"> Time: 
+              {{ event.event_time}}
+              </p>
+            <a href="/#/post"class="post-meta"> Location:
+              {{ event.event_address}}
+            </a>
+          </div>
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <p> {{event.details1}}</p>
+
+            <!-- <p>Give Today</p> -->
+
+            <p>{{event.details1}}</p>
+
+          
+            <p>Learn More About
+              <a href="https://www.cff.org">Foundation</a>.
+
+            <p>
+
+            <div class="clearfix">
+            <a class="btn btn-primary float-left" href="/#/attendees">Register &rarr;</a>
+            </div>
+            </p> 
+
+            <p>
+
+            <div class="clearfix">
+            <a class="btn btn-primary float-left" href="Donate">Map&rarr;</a>
+            </div>
+            </p>
+
+           <!--  <div class="clearfix">
+            <a class="btn btn-primary float-left" href="Donate">Donate &rarr;</a>
+            </div> -->
+
+            <div class="donate-text">
+              <span class="donate-title">Give</span>
+            <div class="donate-money-amount-wrapper">
+              <input class="donate-money-amount" type = "text" value ="$50">
+             <!--  <div class="donate-money-amount-dollar-sign">$</div> -->
+              <div class="donate-money-currency"> 
+                USD
+              </div>
+            </div>
+
+            <button class="btn btn-primary float-left" href="/attendees"> Donate</button>
+   </div>
+
+  </template>
+
+</html>
 
 
           
@@ -440,9 +527,10 @@
         </div>
       </div>
     </article>
-
+ 
   </div>
 
   </template>
 
 </html>
+ -->
