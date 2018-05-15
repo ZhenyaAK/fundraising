@@ -39,9 +39,9 @@ Unirest.clear_default_headers()
   # end 
 
 
-# # see all events
-# response = Unirest.get("http://localhost:3000/events")
-# p response.body
+# see all events
+response = Unirest.get("http://localhost:3000/events")
+p response.body
 
 
 # #see a specific event

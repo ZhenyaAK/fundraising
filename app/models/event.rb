@@ -1,6 +1,9 @@
 class Event < ApplicationRecord
   belongs_to :organiser
+  has_many :event_attendees
   has_many :attendees, through: :event_attendees
+  has_many :donations
+
 
   def as_json
     { 
@@ -13,7 +16,9 @@ class Event < ApplicationRecord
       tagline: tagline,
       details1: details1,
       foundation_url: foundation_url,
-      img_url: img_url
+      img_url: img_url,
+      total_donation: calculate_donation_amount,
+      total_attendees: event_attendees.length
 
     }
   
@@ -21,4 +26,18 @@ class Event < ApplicationRecord
   def organiser
     Organiser.where(id: organiser_id)
   end
+
+   def calculate_donation_amount
+
+     total = 0
+     donations.each do |donation|
+       total += donation.amount
+     
+       p donation.amount
+       
+     end
+     total
+   end
+
+   
 end

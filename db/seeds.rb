@@ -29,4 +29,22 @@
 #     )
 # end
 
-#
+# add donations:
+
+# 100.times do
+#   Donation.create!(
+#     event_id: rand(3...10),
+#     amount: rand(10...1000)
+#     )
+# end
+
+# populate event_attendee table
+ 
+
+     20.times do
+      EventAttendee.create!(
+        event_id: rand(3...10),
+        attendee_id: rand(1...100)
+
+        )
+      end
