@@ -41,10 +41,10 @@
 # populate event_attendee table
  
 
-     20.times do
-      EventAttendee.create!(
-        event_id: rand(3...10),
-        attendee_id: rand(1...100)
+     # 20.times do
+     #  EventAttendee.create!(
+     #    event_id: rand(3...10),
+     #    attendee_id: rand(1...100)
 
-        )
-      end
+     #    )
+     #  end
