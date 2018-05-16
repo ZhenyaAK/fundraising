@@ -133,8 +133,6 @@
       </div>
     </header>
 
-
-
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
             <form>
               <div class="form-row">
@@ -182,7 +180,23 @@
   </template>
 
   <template id="login-page">
-
+   <div>
+    <header class="masthead" style="background-image: url('img/walk.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+            <!--   <h3>{{event.tagline}} </h3> -->
+              <!-- <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+              <span class="meta">Posted by
+                <a href="#">Start Bootstrap</a>
+                on August 24, 2018</span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
     <div class="vue-component">
      <div class="container">
       <h1>Login</h1>
@@ -212,7 +226,7 @@
 
       </div>
     </div>
-    
+    </div>
   </template>
 
   <template id="signup-page">
@@ -244,9 +258,22 @@
   </template>
 
   <template id="event-new-page">
+   <div>
+    <header class="masthead" style="background-image: url('img/Students.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
     <div class="vue-component">
 
-    <div class="container">
+      <div class="container">
       <h3>Add an Event</h3>
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
@@ -275,7 +302,7 @@
      </div>
 
     </div>
-
+  <div>
   </template>
 
   <template id="organiser-events-page">
@@ -285,15 +312,61 @@
       <h3>My Events</h3>
        <div class="col-lg-6 order-lg-1 my-auto showcase-text" v-for="event in events">
 
-            <h2>{{ event.event_name }}</h2>
-            <p class="lead mb-0">{{ event.event_description }}</p>
-            <p class="lead mb-0">Date: {{ event.event_date }}</p>
-            <p class="lead mb-0">Time: {{ event.event_time }}</p>
-            <p class="lead mb-0">Address: {{ event.event_address }}</p>
+            <h2 class="post-title">{{ event.event_name }}</h2>
+            <p class="post-meta">{{ event.event_description }}</p>
+            <p class="post-meta">Date: {{ event.event_date }}</p>
+            <p class="post-meta">Time: {{ event.event_time }}</p>
+            <p class="post-meta">Address: {{ event.event_address }}</p>
 
-        <div class="col-12 col-md-6">
+        <!-- <div class="col-10 col-md-6">
          <button type="Donate" class="btn btn-block btn-lg btn-primary" href="">Donate</button>
-        </div>
+        </div> -->
+            <p class="post-meta"> Total Donated: {{ event.total_donation }}</p>
+            <p class="post-meta"> Total Registered: {{ event.total_attendees }}</p>
+            <a class="btn-primary" href="/#/events/12/edit">Edit</a>
+
+      </div>
+
+    </div>
+
+  </template>
+
+  <template id="event-edit-page">
+    <div class="vue-component">
+
+     <div class="container">
+      <h3>Edit Events</h3>
+      <div class="form-group">
+        <label>Campaign Name:</label>
+        <input type="text" class="form-control" v-model="event.event_name">
+      </div>
+
+      <div class="form-group">
+        <label>Description:</label>
+        <input type="text" class="form-control" v-model="event.event_description">
+      </div>
+
+      <div class="form-group">
+        <label>Date:</label>
+        <input type="text" class="form-control" v-model="event.event_date">
+      </div>
+
+      <div class="form-group">
+        <label>Time:</label>
+        <input type="text" class="form-control" v-model="event.event_time">
+      </div>
+
+      <div class="form-group">
+        <label>Location:</label>
+        <input type="text" class="form-control" v-model="event.event_address">
+      </div>
+
+        <!-- <div class="col-10 col-md-6">
+         <button type="Donate" class="btn btn-block btn-lg btn-primary" href="">Donate</button>
+        </div> -->
+            <p class="post-meta"> Total Donated: {{ event.total_donation }}</p>
+            <p class="post-meta"> Total Registered: {{ event.total_attendees }}</p>
+            <button class="btn-primary" v-on:click="edit()">Edit</button>
 
       </div>
 
@@ -410,8 +483,7 @@
 
   <template id="events-show-page">
    <div>
-
-      <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
@@ -462,18 +534,6 @@
             </div>
             </p> 
 
-            <p>
-
-            <!-- <div class="clearfix">
-            <a class="btn btn-primary float-left" href="Donate">Map&rarr;</a>
-            </div>
- -->
-            </p>
-
-           <!--  <div class="clearfix">
-            <a class="btn btn-primary float-left" href="Donate">Donate &rarr;</a>
-            </div> -->
-
             <div class="donate-text">
               <span class="donate-title">Give</span>
             <div class="donate-money-amount-wrapper">
@@ -500,7 +560,7 @@
   </template>
 
 
-  </template>
+</template>
 
 </html>
 

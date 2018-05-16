@@ -243,7 +243,7 @@ var EventEditPage = {
   data: function() {
     return {
       message: "to update an event!",
-      event: {},
+      event: {event_name:"", event_description:"",event_date:"", event_time:"",event_address:""},
       errors: []
       
     };
@@ -255,7 +255,7 @@ var EventEditPage = {
 
   },
   methods: {
-    submit: function() {
+    edit: function() {
       var params = {
 
         event_name: this.event.event_name,
