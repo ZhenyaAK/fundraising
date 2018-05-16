@@ -5,8 +5,8 @@ def create
       attendee_name: params[:attendee_name],
       attendee_email: params[:attendee_email],
       password: params[:password],
+      password_confirmation: params[:password_confirmation],
       volunteer: params[:volunteer]
-      #password_confirmation params[:password_confirmation]
       )
     if attendee.save
       render json: {message: "created successfully"}, status: :created

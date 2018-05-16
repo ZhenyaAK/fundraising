@@ -15,6 +15,7 @@ class Event < ApplicationRecord
       event_address: event_address, 
       tagline: tagline,
       details1: details1,
+      details2:details2,
       foundation_url: foundation_url,
       img_url: img_url,
       total_donation: calculate_donation_amount,

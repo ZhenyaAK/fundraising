@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   #update
   patch '/events/:id'=> 'events_manager#update'
   #delete
-  delete 'events/:id' => 'events_manager#destroy'
+  delete '/events/:id' => 'events_manager#destroy'
 
 end
