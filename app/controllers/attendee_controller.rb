@@ -1,6 +1,6 @@
 class AttendeeController < ApplicationController
 
-def create
+  def create
     attendee = Attendee.new(
       attendee_name: params[:attendee_name],
       attendee_email: params[:attendee_email],

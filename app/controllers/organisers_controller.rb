@@ -1,5 +1,5 @@
 class OrganisersController < ApplicationController
-  before_action :authenticate_organiser
+  # before_action :authenticate_organiser
 
   def index
     organisers = Organiser.all

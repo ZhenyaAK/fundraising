@@ -53,7 +53,7 @@ var SignupPage = {
       axios
         .post("/organisers", params)
         .then(function(response) {
-          router.push("/login");
+          router.push("/events/new");
         })
         .catch(
           function(error) {
@@ -68,24 +68,25 @@ var RegisterPage = {
   template: "#register-page",
   data: function() {
     return {
-      name: "",
-      email: "",
+      attendee_name: "",
+      attendee_email: "",
       password: "",
-      passwordConfirmation: "",
+      password_confirmation: "",
       errors: []
     };
   },
   methods: {
     register: function() {
       var params = {
-        name: this.name,
-        email: this.email,
+        attendee_name: this.attendee_name,
+        attendee_email: this.attendee_email,
         password: this.password,
-        password_confirmation: this.passwordConfirmation
+        password_confirmation: this.password_confirmation
       };
       axios
         .post("/attendees", params)
         .then(function(response) {
+          // console.log(attendee.attendee_name);
           router.push("/");
         })
         .catch(
